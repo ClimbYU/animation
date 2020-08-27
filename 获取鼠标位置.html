@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      border: 1px solid red;
+      margin: 0 auto;
+    }
+
+    .container {
+      width: 600px;
+      height: 600px;
+      padding: 100px;
+      background-color: aquamarine;
+      border: 10px solid red;
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="container">
+
+      <canvas id='canvas' class="box" width="400" height="400">
+
+      </canvas>
+    </div>
+  </div>
+  <script src="./util.js"></script>
+  <script>
+
+    window.onload = function () {
+      const canvas = document.getElementById('canvas');
+
+      util = new Utils();
+      mouse = util.captureMouse(canvas);
+      canvas.addEventListener('mousedown', function () {
+        console.log(mouse.x, mouse.y)
+      }, false)
+    }
+  </script>
+
+</body>
+
+</html>

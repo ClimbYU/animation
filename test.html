@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function Person(name, age, job) {
+      this.name = name;
+      this.age = age;
+      this.job = job;
+    }
+
+    Person.prototype = {
+      // constructor: Person,
+      getName: function () {
+        return this.name;
+      },
+      getAge: function () {
+        console.log(this)
+        return this.age;
+      },
+      getJob: function () {
+        return this.job;
+      }
+    }
+
+    var p = new Person("二麻子", 18, "worker");
+    console.log(p.constructor);
+    console.log(p.getName());
+    console.log(p.getAge());
+    console.log(p.getJob());
+  </script>
+</body>
+
+</html>
