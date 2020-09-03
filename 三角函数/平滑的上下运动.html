@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../util.js"></script>
+  <script src='./Ball.js'></script>
+</head>
+
+<body>
+  <div>
+    <canvas id="canvas" width="400" height="400"></canvas>
+  </div>
+  <script>
+    window.onload = function () {
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
+
+      const ball = new Ball();
+      let angle = 0;
+
+      ball.x = canvas.width / 2;
+      ball.y = canvas.height / 2;
+      (function drawFrame() {
+        window.requestAnimationFrame(drawFrame, canvas);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ball.y = canvas.height / 2 + Math.sin(angle) * 50;
+        // ball.x = canvas.width / 2 + Math.cos(angle) * 50;
+        // ball.x = canvas.width / 2 + Math.sin(angle) * 50;
+        angle += 0.1;
+        ball.draw(ctx);
+      }())
+    }
+  </script>
+</body>
+
+</html>
